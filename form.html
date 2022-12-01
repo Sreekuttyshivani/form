@@ -1,0 +1,97 @@
+ <section th:fragment="form">
+	<div class="card card-outline card-primary">
+          <div class="card-header">
+            <!-- <h3  th:text="${common.sub_title}" class="card-title text-primary"></h3> -->
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            </div>
+            
+            
+            
+            
+              <!-- row -->
+            <div class="card-body">
+           <div class="form-row">
+           
+           
+           <div class="col-md-4">
+      <div class="form-group" style="width: 90%;">
+         <label>selection 1<span class="text-danger">*</span></label>
+   	  <select name="sec1" id="sec1" class="form-control select2bs4" style="width: 100%">
+    	 <option value='0' selected="selected">---Please Select---</option>
+    	   <option th:each="sec : ${sec}" th:value="${sec[0]}" th:text="${sec[0]+' - '+sec[1]+' - '+sec[2]}"></option>
+    	  </select>               
+      </div>
+     </div>
+     
+    
+     
+       <div class="col-md-4">
+      <div class="form-group" style="width: 90%;">
+         <label>Selection 2span class="text-danger">*</span></label>
+   	  <select name="sec2" id="sec2" class="form-control select2bs4" style="width: 100%">
+    	 <option value='0' selected="selected">---Please Select ---</option>
+    	 
+    	 
+     </select>               
+      </div>
+     </div>
+           
+           
+            <div class="col-md-4">
+      <div class="form-group" style="width: 90%;">
+         <label>Selection3<span class="text-danger">*</span></label>
+   	  <select name="sec3" id="sec3" class="form-control select2bs4" style="width: 100%">
+    	 <option value='0' selected="selected">---Please Select ---</option>
+    	 
+    	 
+     </select>               
+      </div>
+     </div>
+           
+           </div>
+           </div>
+           
+           <!-- row -->
+           
+           
+             <div class="card-body">
+           <div class="form-row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                <h4 style="text-align: center;">Table Count</h4>
+                	<table class="table table-striped table-hover table-fixed inter intertable" style="text-align: center;" id="" >
+					<thead >
+					    <tr bgcolor="#b7d8ff">
+					        <th  class="border-right border-left border-black "><b> General </b></th>
+					        <th  class="border-right border-left border-black" ><b> SC </b></th>
+					        <th  class=" border-right border-left border-black" ><b> ST</b></th>
+					        <th  class=" border-right border-left border-black" ><b> OBC</b></th>
+					        <th  class=" border-right border-left border-black" ><b> Others</b></th>
+					        <th  class="border-right border-left border-black"><b> Total </b></th>
+					    </tr>
+					 </thead>
+					<tbody >
+				        <tr bgcolor="#b7d8ff">
+				        <td id="general_rep" th:text ="${gen_count}" class="border-right border-left border-black repo_td "></td>
+				        <td id="sc_rep" th:text ="${sc_count}" class="border-right border-left border-black repo_td "></td>
+				        <td id="st_rep" th:text ="${st_count}" class="border-right border-left border-black repo_td "></td>
+				        <td id="obc_rep" th:text ="${obc_count}" class="border-right border-left border-black repo_td "></td>
+				        <td id="other_rep" th:text ="${other_count}" class="border-right border-left border-black repo_td "></td>
+				        <td id="total_count" th:text ="${total_count}" class="border-right border-left border-black repo_td "></td>
+				        </tr>
+					</tbody>
+				</table> 
+      </div>
+     </div>
+   </div>
+  </div>
+  
+ </div>
+</section>
