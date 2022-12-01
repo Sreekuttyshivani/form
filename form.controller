@@ -1,0 +1,65 @@
+@PostMapping("/formsubmission")
+	public String registeredfamilies(
+	        Model model,HttpServletRequest request
+			){
+		
+		m_common common = new  m_common();
+		common=auegs_sessions.est(request);
+		List<MMenuItem> menu = menu_ervice.getMenus(Integer.parseInt(common.getDesig_code()));
+		common.setTitle("Form");
+		common.setSub_title("form");
+		common.setTemplate_name("count");
+		common.setTemplate_task("count");
+		model.addAttribute("common", common);
+		model.addAttribute("menu", menu);
+		String group = Service.getgroup();
+		model.addAttribute("group",group);
+		String gen_count = Service.getgp("General");
+		model.addAttribute("gen_count",gen_count);
+		String sc_count = Service.getgp("SC");
+		model.addAttribute("sc_count",sc_count);
+		String st_count = Service.getgp("ST");
+		model.addAttribute("st_count",st_count);
+		String obc_count = Service.getgp("OBC");
+		model.addAttribute("obc_count",obc_count);
+		String other_count = Service.getgp("Others");
+		model.addAttribute("other_count",other_count);
+		String total_count = Service.gettl();
+		model.addAttribute("total_count",total_count);
+		List<Object[]> selection = Service.getsec();
+		model.addAttribute("sec1",sec1);
+		return "app/app";
+	}
+	
+  
+  @PostMapping("/formsubmission/table")
+	public @ResponseBody String table(
+			@RequestParam(required= false) String office, String id,
+			 Model model,HttpServletRequest request
+			) {
+		System.out.println(id);
+		JSONObject range = new JSONObject();
+		
+		try {
+			range = Service.rf("General",office,id);
+			model.addAttribute("gen_count",range);
+			range = reportService.rf("SC",office,id);
+			model.addAttribute("sc_count",range);
+			range = reportService.rf("ST",office,id);
+			model.addAttribute("st_count",range);
+			range = reportService.rf("OBC",office,id);
+			model.addAttribute("obc_count",range);
+			range = reportService.rf("Others",office,id);
+			model.addAttribute("other_count",range);
+			range = reportService.rf("total",office,id);
+			model.addAttribute("total_count",range);
+			range.put("status", true);
+		} catch (Exception e) {
+			range.put("status", false);
+		}
+		System.out.println(range);
+		return range.toString();
+	}
+	
+	
+	
