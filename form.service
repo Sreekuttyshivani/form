@@ -3,15 +3,15 @@
 	  JSONArray array = new JSONArray();
 	  JSONObject dataitems = new JSONObject();
 	  
-	  if(office.equals("dist_reg")) {
+	  if(office.equals("sec1")) {
 		  List<Object[]> tst= reportRepository.getregistered_families_dis(id,group);
 		  dataitems.put("count1",reportRepository.getsec1(id,group).get(0)[0]);  
  		  dataitems.put("count2",reportRepository.getsect(id).get(0)[0]);
-	  }else if(office.equals("ulb_reg")) {
+	  }else if(office.equals("sec2")) {
 		  dataitems.put("count1", Repository.getsec2(id, group).get(0)[0]); 
 		  dataitems.put("count2",Repository.getsec2t(id).get(0)[0]);
 		 
-	  }else if(office.equals("ward_reg")) {
+	  }else if(office.equals("sec3")) {
 		  dataitems.put("count1", Repository.getsec3(id, group).get(0)[0]);
 		  dataitems.put("count2",Repository.getsec3t(id).get(0)[0]);
 	  }
