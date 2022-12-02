@@ -19,7 +19,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 	method : "POST",
-	url : "/mis/registeredfamilies/regtable",	
+	url : "/formsubmission/table",	
 	data : {
 		"id" : id,
 		"office" :office,
